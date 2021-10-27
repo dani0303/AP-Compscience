@@ -15,7 +15,13 @@ public class CylinderTest
         Scanner s1 = new Scanner(System.in);
         
         System.out.println("Enter the radius ");
-        int radius = s1.nextLine();
+        int radius = s1.nextInt();
+        
+        System.out.println("Enter height ");
+        int height = s1.nextInt();
+        
+        Cylinder cylinder = new Cylinder(radius, height);
+        System.out.println("The volume is " + cylinder.getVolume());
         
         
     }
