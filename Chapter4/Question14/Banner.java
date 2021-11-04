@@ -23,17 +23,28 @@ public class Banner extends JPanel
  {
     super.paintComponent(g); // Paint the background
     balloon1.draw(g, true);
-    //balloon2.draw(g, true);
+    balloon2.draw(g, true);
  }
 
  // Called automatically when the timer "fires"
  public void actionPerformed(ActionEvent e)
  {
     // Adjust the vertical position of the shape:
-    int x = balloon1.getX();
-    int y = balloon1.getY();
-    y --;
-    balloon1.move(x, y);
+    int b1Y = balloon1.getY();
+    int b2Y = balloon2.getY();
+    
+    int b1X = balloon1.getX();
+    int b2X = balloon2.getX();
+    
+    b1Y --;
+    b2Y --;
+    if(b1Y < balloon1.getRadius())
+        b1Y = getHeight();
+    if(b2Y < balloon2.getRadius())
+        b2Y = getHeight();
+    
+    balloon1.move(b1X, b1Y);
+    balloon2.move(b2X, b2Y);
     repaint();
  }
 
@@ -47,7 +58,7 @@ public class Banner extends JPanel
 
     //  Create panel, a Banner object, which is a kind of JPanel:
     Banner panel = new Banner();
-    panel.setBackground(Color.CYAN);  // the default color is light gray
+    panel.setBackground(Color.WHITE);  // the default color is light gray
 
     // Add panel to window:
     Container c = window.getContentPane();
@@ -56,13 +67,14 @@ public class Banner extends JPanel
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     window.setVisible(true);
     
-    panel.balloon1 = new RoundBalloon(3, 3, 10, Color.RED);
+    panel.balloon1 = new RoundBalloon(100, 100, 50, Color.RED);
+    panel.balloon2 = new OvalBalloon(500, 100, 50, Color.BLUE);
     
     
     // Create a Timer object that fires every 30 milliseconds;
     // attach it to panel so that panel "listens to" and
     // processes the timer events; start the timer:
-    Timer clock = new Timer(30, panel);
+    Timer clock = new Timer(10, panel);
     clock.start();
  }
 }
