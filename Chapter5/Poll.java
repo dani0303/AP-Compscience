@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Poll here.
  *
@@ -12,7 +11,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 
-public class Poll
+public class Poll extends JFrame
 {
     public Poll()
   {
