@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class PollDisplayPanel here.
  *
@@ -12,22 +11,22 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 
-public class PollDisplayPanel
+public class PollDisplayPanel extends JPanel
 {
   private String name1, name2, name3;
   // Declare the int fields count1, count2, count3:
   private int count1, count2, count3;
-  // Constructor
-  public PollDisplayPanel(String nm1, String nm2, String nm3)
-  {
-    setBackground(Color.WHITE);
+  // Constructor 
+ public PollDisplayPanel(String nm1, String nm2, String nm3)
+ {
+    //setBackground(Color.WHITE);
     name1 = nm1;
     name2 = nm2;
     name3 = nm3;
     count1 = 0;   // optional
     count2 = 0;   // optional
     count3 = 0;   // optional
-  }
+}
 
   // Increments count1
   public void vote1()
@@ -50,11 +49,7 @@ public class PollDisplayPanel
   // Returns a string representation of this object
   public String toString()
   {
-    return   _______________________________ +
-
-        ____________________________________ +
-
-        ________________________________ ;
+    return name1 + ": " + count1 + name2 + ": " + count2 + name3 + ": " + count3;
   }
 
   // Redefines JPanel's paintComponent to draw this pie chart
@@ -93,9 +88,9 @@ public class PollDisplayPanel
       degrees = countToDegrees(count1, total);
       drawSector(g, x, y, r, fromDegree, degrees);
 
-      _________________________________________________
+      //_________________________________________________
 
-      ...
+      //...
     }
     else
     {
@@ -103,7 +98,7 @@ public class PollDisplayPanel
       drawSector(g, x, y, r, fromDegree, 360);
     }
   }
-
+  
   // Draws the vote counts and the corresponding color squares.
   private void drawLegend(Graphics g, int x, int y, int r)
   {
@@ -111,11 +106,11 @@ public class PollDisplayPanel
     y += (r + 20);
     g.setColor(Color.BLACK);
 
-    g.drawString( _______________ , x - r, y);
+    //g.drawString( _______________ , x - r, y);
 
-    g.drawString( _______________ , x, y);
+    //g.drawString( _______________ , x, y);
 
-    g.drawString( _______________ , x + r, y);
+    //g.drawString( _______________ , x + r, y);
 
 
     // Display the color squares:
@@ -134,7 +129,7 @@ public class PollDisplayPanel
   private int countToDegrees(int count, int total)
   {
 
-    return _________________________________________________ ;
+    return count/total;
   }
 
   // Draws a sector, centered at x, y, of radius r,
