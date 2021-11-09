@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class PollControlPanel here.
  *
@@ -14,7 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 
 
-public class PollControlPanel
+public class PollControlPanel extends JPanel
+                          implements ActionListener
 {
     private JButton button1, button2, button3;
   private PollDisplayPanel chartPanel;
